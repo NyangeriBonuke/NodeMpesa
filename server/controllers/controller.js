@@ -20,8 +20,8 @@ class MpesaController{
                 PartyA: `254${phoneNumber}`,    
                 PartyB: process.env.SHORT_CODE,    
                 PhoneNumber: `254${phoneNumber}`,    
-                CallBackURL: "https://3e13-41-90-180-156.ngrok-free.app/callback",    
-                AccountReference: "Test",    
+                CallBackURL: "https://54e9-41-90-180-156.ngrok-free.app/api/callback",    
+                AccountReference: `254${phoneNumber}`,    
                 TransactionDesc: "Test"
             }
 
@@ -40,10 +40,9 @@ class MpesaController{
 
     async callback(req, res){
         try{
-            const callbackData = req.body
+            const callbackData = req.body.Body.stkCallback
             if(callbackData){
                 console.log(callbackData)
-                res.status(200).json(callbackData)
             }
             else{
                 throw new Error('No data received')

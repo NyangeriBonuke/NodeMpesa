@@ -6,4 +6,6 @@ const getAccessToken = require('../middleware/accessToken')
 router.post('/stkpush', getAccessToken, MpesaController.getStkPush)
 router.post('/callback', MpesaController.callback)
 
+router.get('/test', (req, res) => res.send('tests'))
+
 module.exports = router
